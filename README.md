@@ -76,18 +76,22 @@ Gayzo URL :
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
 | prefecture       | integer    | null: false, foreign_key: true |
+| rank             | integer    | null: false, foreing_key: true |
 | user_id          | integer    | null: false, foreign_key: true | 
 
 ### Association
-- has_many :comments
 - belongs_to :user
+- has_many :comments
 
 
 ## comments テーブル
 
-| Column         | Type    | Options                        |
-| -------------- | ------- | ------------------------------ |
-| text           | string  |                                |
+| Column                | Type    | Options                        |
+| --------------------- | ------- | ------------------------------ |
+| text                  | string  |                                |
+| user_id               | integer | null: false, foreing_key: true |
+| tweet_id              | integer | null: false, foreing_key: true |
 
 ### Association
+- belongs_to :user
 - belongs_to :tweet
